@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "reddit": "^1.2.1"
+    "reddit": "^1.2.1",
+    "tiny-dedent": "^1.0.1"
   }
 }

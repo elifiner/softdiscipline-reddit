@@ -1,7 +1,8 @@
 const post = require('./post.js');
+const templates = require('./templates.js');
 
-const cohort = 4;
-const day = 5;
+const cohort = 5;
+const day = 1;
 const users = [
   'jus-doit',
   'Gruppenzwang',
@@ -32,15 +33,11 @@ const users = [
 
 console.log(users.length);
 
-templates = require('./templates.js');
+const prod = process.argv[2] == '--prod';
 
-console.log(templates.dayN.title({cohort: 5, day: 2}));
-
-// const prod = process.argv[2] == '--prod';
-// post.dailyCheckin({
-//   prod: prod,
-//   subreddit: 'getdisciplined',
-//   cohort: cohort,
-//   day: day,
-//   users: users,
-// });
+post.postTemplate({
+  prod,
+  cohort, day, users,
+  subreddit: 'getdisciplined',
+  template: templates.checkin,
+});
