@@ -11,9 +11,16 @@ const users = [
 
 const prod = process.argv[2] == '--prod';
 
-post.postTemplate({
+// post.submitTemplate({
+//   prod,
+//   cohort, day, users,
+//   subreddit: 'getdisciplined',
+//   templates: templates.checkin,
+// });
+
+post.submitNotifications({
+  postId: 'pvojtd',
+  users,
+  template: templates.checkin.comment,
   prod,
-  cohort, day, users,
-  subreddit: 'getdisciplined',
-  template: templates.checkin,
-});
+})

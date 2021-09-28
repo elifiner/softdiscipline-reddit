@@ -26,9 +26,16 @@ const users = [
 
 const prod = process.argv[2] == '--prod';
 
-post.postTemplate({
+// post.postTemplate({
+//   prod,
+//   cohort, day, users,
+//   subreddit: 'getdisciplined',
+//   template: templates.checkin,
+// });
+
+post.submitNotifications({
+  postId: 'pvqfep',
+  users,
+  template: templates.last.comment,
   prod,
-  cohort, day, users,
-  subreddit: 'getdisciplined',
-  template: templates.checkin,
 });
