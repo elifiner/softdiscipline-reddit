@@ -2,7 +2,7 @@ const post = require('./post.js');
 const templates = require('./templates.js');
 
 const cohort = 5;
-const day = 2;
+const day = 6;
 
 var users = [
   '\\_blackpython\\_',
@@ -16,7 +16,7 @@ var users = [
   'Teekayz9',
   'yigitaga32',
   'sau0201',
-  'DrowsyFoxGames',
+  // 'DrowsyFoxGames',
   'Jasmine_erotica',
   'Erren-h',
   'miss_winky',
@@ -60,12 +60,12 @@ var users = [
   'is-this_real-life',
   'eternallyawake',
   'mommyOG',
-  'sharkiemcsharkshark',
+  // 'sharkiemcsharkshark',
   'Redd_Woif',
   'red_read10',
   'MrDev_R',
   'Bobbymcbob99',
-  'Keystone-Habit',
+  // 'Keystone-Habit',
   'rishigohil',
   'CyclopeWarrior',
   'No_Papaya_1931',
@@ -89,17 +89,15 @@ var users = [
 //   'zoozla1',
 // ]
 
-const prod = process.argv[2] == '--prod';
-
 post.submitNotifications({
-  postId: 'pxavi2',
-  users,
-  template: templates.first.comment,
-  prod,
+  postId: 'q164ni',
+  users: users,
+  template: templates.last.comment,
+  prod: true,
 });
 
 // post.submitTemplate({
-//   prod: prod,
+//   prod: true,
 //   cohort: cohort,
 //   day: day,
 //   users: users,

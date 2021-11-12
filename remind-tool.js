@@ -1,17 +1,9 @@
 (async() => {
 
-const snoowrap = require('snoowrap');
+const r = require('./reddit.js');
 const S = require('tiny-dedent');
 
-const r = new snoowrap({
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  clientId: process.env.APP_ID,
-  clientSecret: process.env.APP_SECRET,
-  userAgent: 'SoftDiscipline/1.0.0 (https://softdiscipline.com)'
-});
-
-var postId = 'pwpamu';
+var postId = 'qra1zk';
 var automationUser = 'zoozla';
 
 // get submission with all comments
@@ -44,9 +36,12 @@ for (var comment of res.comments) {
   // add a reminder comment if they didn't reply
   if (! replied && ! reminded) {
     console.log(`Pinging ${tagged}`);
-    await comment.reply(S(`
-      Are you doing OK, u/${tagged}? Let's talk, even if your habit isn't going well.
-    `));
+    // await comment.reply(S(`
+    //   Hey u/${tagged}, are you doing OK? This is a  quick reminder to check in about your habit. It's OK if you forgot or didn't have time or if it isn't going well. We'll work through it together.
+    // `));
+    // await comment.reply(S(`
+    //   Hey u/${tagged}, how is your habit is going?
+    // `));
   }
 }
 })();
