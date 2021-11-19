@@ -4,7 +4,11 @@ const r = require('./reddit.js');
 const S = require('tiny-dedent');
 
 var postIds = [
-  'qb6stk',
+  'qpqswl',
+  'qqsnti',
+  'qra1zk',
+  'qs566t',
+  'qst6jn',
 ];
 var automationUser = 'zoozla';
 
@@ -13,6 +17,8 @@ async function getActiveUsers(postId) {
   const res = await r.getSubmission(postId).expandReplies({limit: Infinity, depth: Infinity});
 
   var users = [];
+
+  console.log(res.title);
 
   for (var comment of res.comments) {
     if (! comment.author == automationUser) continue;
@@ -38,7 +44,9 @@ async function getActiveUsers(postId) {
   return users;
 }
 
-console.log(await getActiveUsers(postIds[1]));
+for (postId of postIds) {
+  console.log(await getActiveUsers(postId));
+}
 
 
 })();

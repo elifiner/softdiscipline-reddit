@@ -2,10 +2,10 @@
 
 const snoowrap = require('snoowrap');
 
-var postId = 'qs566t';
+var postId = 'qty9sr';
 
 users = [
-  'zoozla1',
+  // 'zoozla1',
   'zoozla2',
   'zoozla3',
 ];
@@ -20,8 +20,8 @@ async function upvote(username, password, postId) {
   const reddit = new snoowrap({
     username: username,
     password: password,
-    clientId: process.env.APP_ID,
-    clientSecret: process.env.APP_SECRET,
+    clientId: process.env.REDDIT_APP_ID,
+    clientSecret: process.env.REDDIT_APP_SECRET,
     userAgent: 'SoftDiscipline/1.0.0 (https://softdiscipline.com)'
   });
 
@@ -30,8 +30,10 @@ async function upvote(username, password, postId) {
     requestDelay: 500,
   });
 
+  console.log(username);
+
   const submission = await reddit.getSubmission(postId);
-  submission.upvote();
+  await submission.upvote();
 }
 
 })();

@@ -37,12 +37,14 @@ async function submitTemplate({subreddit, templates, cohort, day, users, prod}) 
     text: templates.text({cohort, day}),
     prod: prod
   });
-  await submitNotifications({
-    submission: submission,
-    template: templates.comment,
-    users: users,
-    prod: prod
-  });
+  if (templates.comment) {
+    await submitNotifications({
+      submission: submission,
+      template: templates.comment,
+      users: users,
+      prod: prod
+    });
+  }
 }
 
 module.exports = {

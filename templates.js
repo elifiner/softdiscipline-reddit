@@ -1,68 +1,73 @@
 S = require('tiny-dedent');
 
-module.exports = {
-  launch: {
-    comment: ({user}) => S(`
-      Hey u/${user}! The next soft discipline cohort is starting today. Check out the full post for instructions on how to join.
-    `),
-  },
-
+var templates = {
   first: {
     title: ({cohort, day}) => S(`
-      [Plan] Soft discipline cohort #${cohort} (day ${day}/7)
+      [Method] Build a study, sleep or exercise habit in 7 days (soft discipline cohort #${cohort})
     `),
 
     text: ({cohort, day}) => S(`
-    Hey guys,
+      **It's another week and another chance to get your life back on track.**
 
-    **Welcome to the soft discipline habit building program.**
+      Whether you want to fall sleep earlier, wake up at dawn, exercise every day or study consistently - this 7 day program should help you do it.
 
-    We're going to spend the next 7 days building just one habit. The goal is to create something sustainable, that requires as little effort as possible and fits your life and personal style.
+      It doesn't matter if you've tried it all before. It doesn't matter if you think you're irreparably lazy, unmotivated or anxious.
 
-    I'll post a check-in post like this one every day and tag everyone who registered.
+      This method works by starting small, adjusting daily, staying accountable and treating yourself with kindness and compassion.
 
-    Do your best to post an update every day - especially if things aren't going well. I know it can be embarassing, but that's the only way I can help you fix whatever is broken. If you feel especially awkward, you can send me an update in private via DM.
+      The only way to fail is to stop trying.
 
-    We'll start by making a plan that you'll try to follow tomorrow (or today if your day is just starting). We'll then check-in every day to see how the habit is going, adjust the plan and try again. It's a simple approach, but because of the daily cadence it can be very significant.
+      The only requirement is to show up every day and report on how you're doing, even if it's not going well.
 
-    I will never judge you, shame you or push you in any way and I won't let anyone else do it either. This is a learning process and any failure, however unpleasant, is just success in progress.
+      ...
 
-    ...
+      **We'll do 7 daily check-ins.**
 
-    **So, let's make a plan, just for tomorrow.**
+      Every day for the next 7 days, I'll post a post [like this one](https://www.reddit.com/r/getdisciplined/comments/ptqktc/plan_soft_discipline_cohort_4_day_47/) tagging the names of everyone who registered for the cohort.
 
-    Answer the following quick questions in a comment below:
+      You'll spend a few minutes reflecting on how your habit is going and I'll help you navigate any challenge you face.
 
-    1. What's you habit?
-    2. What are you planning to do *tomorrow*?
-    3. When are you planning to do it?
-    4. How will you remember to do it?
-    5. What can keep you from doing it?
-    6. How can you work around that?
+      I'll never judge you and I won't let anyone else judge you here either. Everyone joining the program fails to stick to their habits at first. It's how we learn. You're not alone.
 
-    After you answer the questions, summarize your plan in short bullet points so both you and I are clear on what you intend to do.
+      ...
 
-    ...
+      **To join the cohort you need to do two things:**
 
-    **Try to make a plan you can stick to without effort.**
+      1. Fill out the form at [https://softdiscipline.com/cohort](https://softdiscipline.com/cohort) to register for daily notifications.
 
-    Your ambition is awesome in the long run, but if you aim too high in the short run you'll just burn out. So choose an initial goal that feels ridiculously easy and that you can do with minimal resistance.
+      2. Post a comment below and describe your plan to tackle your habit for tomorrow:
 
-    * If you are working on your sleep patterns, take a look a the [sleep schedule plan](https://www.reddit.com/r/getdisciplined/comments/pv4tz6/method_fix_your_sleep_schedule_for_good_with_soft/?utm_source=share&utm_medium=web2x&context=3) and start with stabilizing your sleep schedule.
-    * If you are building an exercise habit, aim for a very easy workout that will leave you wanting more.
-    * If you are learning how to get things done, make a short list of tasks you feel confident you can do tomorrow, regardless of how much you think you *need* to do. Take a look a the [getting things done plan](https://www.reddit.com/r/getdisciplined/comments/ph02z9/method_feeling_overwhelmed_with_all_the_things/?utm_source=share&utm_medium=web2x&context=3) for inspiration and guidance on how to prioritize.
+          - What are you planning to do?
+          - When are you planning to do it?
+          - How will your remember to do it?
+          - What can prevent you from doing it?
+          - What can help you do it?
 
-    ...
+      I'll comment on your plan and help you refine it so it's easier to do. We are going for consistency, not intensity and we have 7 days to build this up - so let's start small.
 
-    This is it. We're ready for launch.
+      ...
 
-    Good luck everyone!
+      If you'd like to adjust your sleep schedule, read this:
+
+      https://www.reddit.com/comments/pv4tz6/sleep
+
+      If you have too much to do and don't know where to start, read this:
+
+      https://reddit.com/r/getdisciplined/comments/ph02z9/gtd
+
+      If you'd like to know more about the method, read this:
+
+      https://reddit.com/r/getdisciplined/comments/orjzxg/16_ideas
+
+      ...
+
+      Post your plan below.
+
+      **Let's do this.**
     `),
 
     comment: ({user}) => S(`
-      Hey u/${user}, let's build a plan for your habit. Check out the full post for details.
-
-      1/habit 2/plan 3/time 4/reminder 5/obstacle 6/workaround
+      Hey u/${user}, let's build a habit this week! Check out the post above for instructions.
     `),
   },
 
@@ -100,10 +105,52 @@ module.exports = {
   },
 
   last: {
-    comment: ({user}) => S(`
-      Hey u/${user}, our 7-day habit building program is done and it's time to reflect on the entire week. It's OK if you're not where you wanted to be. It's still helpful to take stock and appreciate what you've learned. Take a look at the post above for some more instructions.
+    title: ({cohort, day}) => S(`
+      [Plan] Soft discipline cohort #${cohort} (day ${day}/7 - last day!)
+    `),
+    text: ({cohort, day}) => S(`
+      **It's done!**
 
-      1/start 2/now 3/insight 4/future
+      Thanks so much for taking part in this cohort. It's been a privilege to walk with you on this path.
+
+      It may seem you're not there yet, and that there's a lot more work to do. From the top of this hill we climbed together we can see higher mountains we still need to climb.
+
+      But before we put our proverbial backpacks back on and continue on our journey of self improvement, let's take a few minutes to acknowledge the work we've done **in just 7 days**.
+
+      1. Take a look at the first comment you posted at the start of this cohort. That's where you were then.
+
+      2. Now take stock of where you are now. What's different about you? What can you do now that you couldn't before?
+
+      3. How did this process help you? Was there a moment or an insight that made all the difference?
+
+      ...
+
+      For some of you it's the beginning of a wonderful journey of self discovery. For others, it's just another step.
+
+      While it's possible to build a single habit in a week, a disciplined life is more than just a collection of habits.
+
+      **Truly disciplined people can consistently do whatever they set their mind to do without resistance, anxiety or hesitation.**
+
+      I'm working on a full discipline building program that will help you become such a person. DM me for details.
+
+      **Thank you!**
+    `),
+    comment: ({user}) => S(`
+      Hey u/${user}, our 7-day habit building program is done. Let's reflect on the entire week. It's OK if you're not where you wanted to be - it's still helpful to take stock and appreciate what you've learned. Take a look at the post above for some instructions.
+
+      1/start 2/now 3/insights
     `),
   }
 }
+
+templates.days = {
+  1: templates.first,
+  2: templates.daily,
+  3: templates.daily,
+  4: templates.daily,
+  5: templates.daily,
+  6: templates.daily,
+  7: templates.last,
+};
+
+module.exports = templates;
