@@ -66,8 +66,8 @@ var templates = {
       **Let's do this.**
     `),
 
-    comment: ({user}) => S(`
-      Hey u/${user}, let's build a habit this week! Check out the post above for instructions.
+    comment: ({cohort, day, user}) => S(`
+      Hey u/${user}, soft discipline cohort #${cohort} is starting today. Check out the post above for instructions.
     `),
   },
 
@@ -97,7 +97,7 @@ var templates = {
 
       Let's keep it up!
     `),
-    comment: ({user}) => S(`
+    comment: ({cohort, day, user}) => S(`
       Hey u/${user}, how's your habit going? How are you feeling?
 
       1/habit 2/plan 3/result 4/resistance 5/improvement 6/tomorrow
@@ -135,7 +135,7 @@ var templates = {
 
       **Thank you!**
     `),
-    comment: ({user}) => S(`
+    comment: ({cohort, day, user}) => S(`
       Hey u/${user}, our 7-day habit building program is done. Let's reflect on the entire week. It's OK if you're not where you wanted to be - it's still helpful to take stock and appreciate what you've learned. Take a look at the post above for some instructions.
 
       1/start 2/now 3/insights

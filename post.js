@@ -16,7 +16,7 @@ async function submitPost({subreddit, title, text, prod}) {
   });
 }
 
-async function submitNotifications({submission, template, users, prod}) {
+async function submitNotifications({submission, template, cohort, day, users, prod}) {
   // post a notification comment for every user
   console.log(`Submitting ${users.length} comments...`);
   var submission = submission.name ? submission : reddit.getSubmission(submission);
@@ -26,7 +26,7 @@ async function submitNotifications({submission, template, users, prod}) {
       user = 'test-' + user;
     }
     console.log(user);
-    await submission.reply(template({user}));
+    await submission.reply(template({user, cohort, day}));
   }
 }
 
@@ -42,7 +42,9 @@ async function submitTemplate({subreddit, templates, cohort, day, users, prod}) 
       submission: submission,
       template: templates.comment,
       users: users,
-      prod: prod
+      prod: prod,
+      cohort: cohort,
+      day: day
     });
   }
 }

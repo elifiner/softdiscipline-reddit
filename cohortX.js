@@ -5,8 +5,8 @@ const S = require('tiny-dedent');
 
 (async () => {
   await postCohortCheckin({
-    cohort: 9,
-    day: 4,
+    cohort: 10,
+    day: 1,
   })
 })();
 
@@ -47,7 +47,7 @@ async function postCohortCheckin({cohort, day}) {
   const users = participants.map((v) => v.Reddit);
 
   post.submitTemplate({
-    prod: false,
+    prod: true,
     subreddit: 'getdisciplined',
     cohort: cohort,
     day: day,
