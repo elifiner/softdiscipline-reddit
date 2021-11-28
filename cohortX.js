@@ -6,7 +6,7 @@ const S = require('tiny-dedent');
 (async () => {
   await postCohortCheckin({
     cohort: 10,
-    day: 1,
+    day: 7,
   })
 })();
 
