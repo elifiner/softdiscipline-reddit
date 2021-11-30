@@ -1,14 +1,21 @@
+const S = require('tiny-dedent');
 const post = require('./post.js');
 const templates = require('./templates.js');
 const notion = require('./notion.js');
-const S = require('tiny-dedent');
+const db = require("./db.js");
 
-(async () => {
-  await postCohortCheckin({
-    cohort: 10,
-    day: 7,
-  })
-})();
+async function postCheckin() {
+  var cohort = await db.getCurrent();
+  var data = await db.getCohort(cohort);
+  if (! data.done) {
+    console.log('Posting:', {cohort: cohort, day: data.day});
+    await postCohortCheckin({
+      cohort: cohort,
+      day: data.day,
+    })
+  }
+  await db.incCohort(cohort);
+}
 
 async function postCohortCheckin({cohort, day}) {
   const DATABASE = '19228db15f124f72aaefeede5acc7b01';
@@ -40,18 +47,23 @@ async function postCohortCheckin({cohort, day}) {
     },
   });
 
-  if (participants.length == 0) {
+  if (day > 1 && participants.length == 0) {
     throw new Error(`no users registered for cohort ${cohort}`);
   }
 
-  const users = participants.map((v) => v.Reddit);
-
+  var users = participants.map((v) => v.Reddit);
+  
   post.submitTemplate({
-    prod: true,
+    prod: false,
     subreddit: 'getdisciplined',
     cohort: cohort,
     day: day,
     users: users,
     templates: templates.days[day],
   });
+}
+
+module.exports = {
+  postCheckin,
+  postCohortCheckin
 }
