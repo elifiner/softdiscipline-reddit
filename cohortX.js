@@ -54,7 +54,7 @@ async function postCohortCheckin({cohort, day}) {
   var users = participants.map((v) => v.Reddit);
   
   post.submitTemplate({
-    prod: false,
+    prod: true,
     subreddit: 'getdisciplined',
     cohort: cohort,
     day: day,
